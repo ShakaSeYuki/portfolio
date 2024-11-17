@@ -7,7 +7,7 @@
 # Author
 
 * 作成者:西野友貴
-* E-mail：citras0113@gmail.com
+* twitter：[ShakaSeYuki](https://x.com/ShakaSeYuki)
 
 # License
 
