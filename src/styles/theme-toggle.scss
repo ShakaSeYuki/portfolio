@@ -1,0 +1,116 @@
+@use "@/styles/variables.scss" as *;
+
+.theme-toggle {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  
+  // @include mobile {
+  //   right: 15px;
+  // }
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--bg-header);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  cursor: pointer;
+  transition: all $transition-default ease;
+  
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px var(--shadow-color);
+  }
+  
+  // @include mobile {
+  //   width: 45px;
+  //   height: 45px;
+  // }
+}
+
+.theme-icon {
+  font-size: 24px;
+  
+  // @include mobile {
+  //   font-size: 20px;
+  // }
+}
+
+.theme-selector {
+  position: absolute;
+  top: -10px;
+  right: 60px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  background-color: var(--bg-header);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  
+  &.open {
+    display: flex;
+  }
+  
+  // @include mobile {
+  //   right: 55px;
+  //   padding: 8px;
+  // }
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all $transition-default ease;
+  
+  &:hover {
+    background-color: var(--bg-secondary);
+  }
+  
+  &.active {
+    border-color: var(--text-accent);
+    background-color: var(--bg-secondary);
+  }
+  
+  // @include mobile {
+  //   width: 35px;
+  //   height: 35px;
+  //   font-size: 18px;
+  // }
+}
+
+// Show theme selector on hover/focus
+.theme-toggle:hover .theme-selector,
+.theme-toggle:focus-within .theme-selector {
+  display: flex;
+}
+
+// Smooth theme transition
+html {
+  transition: background-color $transition-default ease;
+}
+
+// Prevent flash of unstyled content during theme change
+[data-theme] {
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}

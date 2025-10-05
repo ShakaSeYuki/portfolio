@@ -1,0 +1,76 @@
+@use "@/styles/variables.scss" as *;
+
+// Mobile-first responsive design utilities
+
+// Mixins for responsive breakpoints
+@mixin mobile {
+  @media screen and (max-width: $breakpoint-sp) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{$breakpoint-sp + 1px}) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1025px) {
+    @content;
+  }
+}
+
+// Container responsive utilities
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include mobile {
+    padding: 0 $container-padding-sp;
+  }
+
+  @include tablet {
+    padding: 0 30px;
+  }
+}
+
+// Grid system for responsive layout
+.grid {
+  display: grid;
+  gap: 20px;
+
+  &.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Responsive spacing utilities
+.section {
+  padding: 90px 0;
+
+  @include mobile {
+    padding: 60px 0;
+  }
+
+  @include tablet {
+    padding: 75px 0;
+  }
+}

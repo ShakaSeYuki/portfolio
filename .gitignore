@@ -1,3 +1,41 @@
+# macOS
 .DS_Store
-node_modules
-/dist
+
+# 依存関係
+node_modules/
+
+# ビルド出力
+dist/
+
+# Claude設定
+.claude/
+
+# エディタ・IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ビルド・キャッシュ
+.vite/
+*.local
+.cache/
+
+# ログファイル
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# テスト・カバレッジ
+coverage/
+.nyc_output/
+
+# 環境変数
+.env
+.env.local
+.env.*.local
+
+# その他
+Thumbs.db
+*.tsbuildinfo

@@ -1,0 +1,41 @@
+@use "@/styles/variables.scss" as *;
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation: fadeInUp $transition-long ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn $transition-default ease forwards;
+}
+
+// Scroll animation utilities
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity $transition-long ease, transform $transition-long ease;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
