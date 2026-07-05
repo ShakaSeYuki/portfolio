@@ -39,3 +39,4 @@ coverage/
 # その他
 Thumbs.db
 *.tsbuildinfo
+local/
