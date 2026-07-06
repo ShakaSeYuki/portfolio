@@ -1,9 +1,24 @@
 import path from 'path';
-import { defineConfig } from 'vite';
+import { rename } from 'fs/promises';
+import { defineConfig, Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
+/**
+ * ビルド成果物の index.react.html を index.html にリネームするプラグイン
+ * ルートURL（/）でReact版が表示されるようにする
+ */
+const renameReactHtml = (): Plugin => ({
+  name: 'rename-react-html',
+  closeBundle: async () => {
+    await rename(
+      path.resolve(__dirname, 'dist/index.react.html'),
+      path.resolve(__dirname, 'dist/index.html')
+    );
+  },
+});
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), renameReactHtml()],
   root: '.',
   publicDir: 'public',
   build: {
