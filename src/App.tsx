@@ -13,7 +13,7 @@ import { usePWA } from './hooks/usePWA';
 
 const App: React.FC = () => {
   usePerformanceOptimization();
-  const { isInstallable, installPWA } = usePWA();
+  usePWA();
   
   return (
     <>

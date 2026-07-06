@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Profile, ProfilePeriod } from '../types';
+import { Profile } from '../types';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import OptimizedImage from './OptimizedImage';
 

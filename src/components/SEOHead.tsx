@@ -47,6 +47,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   };
 
   useEffect(() => {
+    // ページタイトルを設定
+    document.title = title;
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify(structuredData);

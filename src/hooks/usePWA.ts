@@ -24,7 +24,7 @@ export const usePWA = () => {
     // Handle install prompt
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
-      setDeferredPrompt(e as any);
+      setDeferredPrompt(e as unknown as PWAInstallPrompt);
       setIsInstallable(true);
     };
 

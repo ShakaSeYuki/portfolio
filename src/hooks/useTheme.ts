@@ -5,15 +5,14 @@ export type Theme = 'light' | 'dark' | 'system';
 const THEME_STORAGE_KEY = 'portfolio-theme';
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>('system');
+  // 保存済みテーマを初期値として遅延初期化（effect内setStateを回避）
+  const [theme, setTheme] = useState<Theme>(() => {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+    return savedTheme && ['light', 'dark', 'system'].includes(savedTheme)
+      ? savedTheme
+      : 'system';
+  });
   const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme;
-    if (savedTheme && ['light', 'dark', 'system'].includes(savedTheme)) {
-      setTheme(savedTheme);
-    }
-  }, []);
 
   useEffect(() => {
     const updateResolvedTheme = () => {
