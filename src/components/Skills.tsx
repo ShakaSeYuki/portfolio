@@ -60,6 +60,13 @@ const skillsData: Skill[] = [
     rating: 4,
     image: getPublicAssetPath('img/mysql.svg'),
     alt: 'mysql'
+  },
+  {
+    id: 'ai-tools',
+    name: 'AI開発ツール（Claude Code / Codex）',
+    rating: 4,
+    image: getPublicAssetPath('img/ai-tools.svg'),
+    alt: 'AI開発ツール'
   }
 ];
 
