@@ -75,16 +75,13 @@ portfolio/
 │   │   └── index.ts
 │   ├── App.tsx            # メインアプリケーション
 │   └── main.tsx           # エントリーポイント
-├── js/                    # レガシー JavaScript
-│   └── script.ts          # TypeScript版スクリプト
-├── css/                   # レガシー CSS
-│   ├── ress.css          # CSS リセット
-│   └── style.css         # 元のスタイル（保持）
-├── img/                   # 画像ファイル
-├── index.html             # オリジナル HTML版
-├── index.react.html       # React版 HTML
-├── manifest.json          # PWA マニフェスト
-├── sw.js                  # Service Worker
+├── css/                   # CSS リセット
+│   └── ress.css          # CSS リセット（index.htmlから参照）
+├── public/                # 静的アセット
+│   ├── img/               # 画像ファイル
+│   ├── manifest.json      # PWA マニフェスト
+│   └── sw.js              # Service Worker
+├── index.html             # React版 HTML（エントリーポイント）
 ├── package.json           # プロジェクト設定
 ├── tsconfig.json          # TypeScript設定
 ├── vite.config.ts         # Vite設定
@@ -243,9 +240,8 @@ portfolio/
 
 ## 特記事項
 
-### 2つのバージョン
-- **オリジナル版**: `index.html`（jQuery使用、軽量）
-- **React版**: `index.react.html`（モダン、高機能）
+### バージョン構成
+- **React版のみ**: `index.html`（旧jQuery版は2026-07に削除済み）
 
 ### 開発方針
 - 既存機能の互換性維持
