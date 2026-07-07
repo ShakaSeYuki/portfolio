@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { getBasePath, getPublicAssetPath } from '../utils/assets';
 
 interface SEOHeadProps {
   title?: string;
@@ -10,8 +11,8 @@ interface SEOHeadProps {
 const SEOHead: React.FC<SEOHeadProps> = ({
   title = 'Yuki Nishino Portfolio',
   description = '西野友貴のポートフォリオサイトです。React、TypeScript、Angular、Java、AWSなどのスキルを活かしたフロントエンド・バックエンド開発を行っています。',
-  ogImage = '/img/favicon.png',
-  canonicalUrl = '/'
+  ogImage = getPublicAssetPath('img/favicon.png'),
+  canonicalUrl = getBasePath()
 }) => {
   const structuredData = {
     '@context': 'https://schema.org',
@@ -47,7 +48,6 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   };
 
   useEffect(() => {
-    // ページタイトルを設定
     document.title = title;
 
     const script = document.createElement('script');

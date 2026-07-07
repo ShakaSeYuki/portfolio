@@ -1,4 +1,5 @@
 import React from 'react';
+import { getBasePath } from '../utils/assets';
 import ThemeToggle from './ThemeToggle';
 
 const Header: React.FC = () => {
@@ -22,7 +23,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="container">
         <h1 className="header-logo">
-          <a href="/">Yuki Nishino</a>
+          <a href={getBasePath()}>Yuki Nishino</a>
         </h1>
         <nav className="gnav">
           <ul className="gnav-list">

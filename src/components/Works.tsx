@@ -1,21 +1,22 @@
 import React, { useRef } from 'react';
 import { Work } from '../types';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { getBasePath, getPublicAssetPath } from '../utils/assets';
 import OptimizedImage from './OptimizedImage';
 
 const worksData: Work[] = [
   {
     id: 'portfolio',
     name: 'このポートフォリオサイト',
-    image: '/img/favicon.png',
+    image: getPublicAssetPath('img/favicon.png'),
     alt: 'Portfolio',
-    url: '/',
+    url: getBasePath(),
     isExternal: false
   },
   {
     id: 'pomodoro',
     name: 'ポモドーロタイマー',
-    image: '/img/pomodoro-timer.png',
+    image: getPublicAssetPath('img/pomodoro-timer.png'),
     alt: 'ポモドーロタイマー',
     url: 'https://chromewebstore.google.com/detail/%E3%83%9D%E3%83%A2%E3%83%89%E3%83%BC%E3%83%AD%E3%82%BF%E3%82%A4%E3%83%9E%E3%83%BCpomodoro-timer/lpfaeeoapaaljlcgaifnahimgbocleeb?hl=ja',
     isExternal: true
@@ -23,7 +24,7 @@ const worksData: Work[] = [
   {
     id: 'cremea',
     name: 'クレメアメーカー',
-    image: '/img/cremea.png',
+    image: getPublicAssetPath('img/cremea.png'),
     alt: 'クレメアメーカー',
     url: 'https://shakaseyuki.github.io/cremea-maker/',
     isExternal: true

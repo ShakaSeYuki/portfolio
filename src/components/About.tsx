@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { Profile } from '../types';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { getPublicAssetPath } from '../utils/assets';
 import OptimizedImage from './OptimizedImage';
 
 const profileData: Profile = {
   name: 'Yuki Nishino',
-  image: '/img/profile.png',
+  image: getPublicAssetPath('img/profile.png'),
   periods: [
     {
       period: '1989/01/13生まれ。',

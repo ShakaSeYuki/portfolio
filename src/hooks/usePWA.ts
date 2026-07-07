@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getPublicAssetPath } from '../utils/assets';
 
 interface PWAInstallPrompt {
   prompt: () => Promise<void>;
@@ -10,9 +11,9 @@ export const usePWA = () => {
   const [isInstallable, setIsInstallable] = useState(false);
 
   useEffect(() => {
-    // Register service worker
+    // Service Workerを登録する
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register(getPublicAssetPath('sw.js'))
         .then(registration => {
           console.log('SW registered: ', registration);
         })
@@ -21,7 +22,7 @@ export const usePWA = () => {
         });
     }
 
-    // Handle install prompt
+    // インストールプロンプトを制御する
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as unknown as PWAInstallPrompt);

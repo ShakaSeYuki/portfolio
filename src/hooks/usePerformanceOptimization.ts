@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
+import { getPublicAssetPath } from '../utils/assets';
 
 export const usePerformanceOptimization = () => {
   useEffect(() => {
-    // Preload critical resources
+    // 重要な画像を事前読み込みする
     const preloadCriticalImages = () => {
       const criticalImages = [
-        '/img/profile.png',
-        '/img/favicon.png'
+        getPublicAssetPath('img/profile.png'),
+        getPublicAssetPath('img/favicon.png')
       ];
 
       criticalImages.forEach(src => {
@@ -18,7 +19,7 @@ export const usePerformanceOptimization = () => {
       });
     };
 
-    // Optimize font loading
+    // フォント読み込みを最適化する
     const optimizeFontLoading = () => {
       if ('fonts' in document) {
         Promise.all([
@@ -30,12 +31,12 @@ export const usePerformanceOptimization = () => {
       }
     };
 
-    // Reduce layout thrashing
+    // スクロール時のレイアウト再計算を抑える
     const optimizeScrollPerformance = () => {
       let ticking = false;
       
       const updateScrollPosition = () => {
-        // Batch DOM reads and writes
+        // DOMの読み書きをまとめて実行する
         requestAnimationFrame(() => {
           ticking = false;
         });

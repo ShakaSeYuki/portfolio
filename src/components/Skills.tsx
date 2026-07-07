@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Skill } from '../types';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { getPublicAssetPath } from '../utils/assets';
 import OptimizedImage from './OptimizedImage';
 
 const skillsData: Skill[] = [
@@ -8,56 +9,56 @@ const skillsData: Skill[] = [
     id: 'html-css',
     name: 'HTML5/CSS3',
     rating: 4,
-    image: '/img/html-5.svg',
+    image: getPublicAssetPath('img/html-5.svg'),
     alt: 'html5'
   },
   {
     id: 'wordpress',
     name: 'WordPress',
     rating: 3,
-    image: '/img/wordpress-icon.svg',
+    image: getPublicAssetPath('img/wordpress-icon.svg'),
     alt: 'wordpress'
   },
   {
     id: 'javascript',
     name: 'JavaScript/TypeScript',
     rating: 4,
-    image: '/img/typescript.png',
+    image: getPublicAssetPath('img/typescript.png'),
     alt: 'typescript'
   },
   {
     id: 'react',
     name: 'React',
     rating: 4,
-    image: '/img/react.png',
+    image: getPublicAssetPath('img/react.png'),
     alt: 'react'
   },
   {
     id: 'angular',
     name: 'Angular/AngularJS',
     rating: 4,
-    image: '/img/angular.png',
+    image: getPublicAssetPath('img/angular.png'),
     alt: 'angular'
   },
   {
     id: 'backend',
     name: 'JAVA/Kotlin/PHP',
     rating: 3,
-    image: '/img/java.png',
+    image: getPublicAssetPath('img/java.png'),
     alt: 'java'
   },
   {
     id: 'cloud',
     name: 'AWS/GCP',
     rating: 3,
-    image: '/img/aws.png',
+    image: getPublicAssetPath('img/aws.png'),
     alt: 'aws'
   },
   {
     id: 'database',
     name: 'MySQL/PostgreSQL',
     rating: 4,
-    image: '/img/mysql.svg',
+    image: getPublicAssetPath('img/mysql.svg'),
     alt: 'mysql'
   }
 ];
