@@ -18,6 +18,7 @@ const renameReactHtml = (): Plugin => ({
 });
 
 export default defineConfig({
+  base: '/portfolio/',
   plugins: [react(), renameReactHtml()],
   root: '.',
   publicDir: 'public',
