@@ -28,6 +28,14 @@ const worksData: Work[] = [
     alt: 'クレメアメーカー',
     url: 'https://shakaseyuki.github.io/cremea-maker/',
     isExternal: true
+  },
+  {
+    id: 'bucket-list-100',
+    name: 'Bucket List 100',
+    image: getPublicAssetPath('img/bucket-list-100.svg'),
+    alt: 'Bucket List 100',
+    url: 'https://bucket-list-100.pages.dev/',
+    isExternal: true
   }
 ];
 
