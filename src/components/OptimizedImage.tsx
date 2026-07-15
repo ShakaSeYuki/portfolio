@@ -48,7 +48,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   return (
     <img
       ref={imgRef}
-      src={isInView ? src : ''}
+      src={isInView ? src : undefined}
       alt={alt}
       className={`${className || ''} ${isLoaded ? 'loaded' : 'loading'}`}
       width={width}

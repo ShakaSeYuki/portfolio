@@ -14,6 +14,14 @@ const worksData: Work[] = [
     isExternal: false
   },
   {
+    id: 'kaimono-mask',
+    name: 'Kaimono Mask',
+    image: getPublicAssetPath('img/kaimono-mask.jpg'),
+    alt: 'Amazonの個人情報を撮影前に隠すChrome拡張機能「Kaimono Mask」',
+    url: 'https://chromewebstore.google.com/detail/kaimono-mask/aodhmfieogfcpfhgoldnenmchcmlpohj',
+    isExternal: true
+  },
+  {
     id: 'pomodoro',
     name: 'ポモドーロタイマー',
     image: getPublicAssetPath('img/pomodoro-timer.png'),
