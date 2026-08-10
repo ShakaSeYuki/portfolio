@@ -25,6 +25,13 @@
 
 デプロイは既存の [`deploy.yml`](../.github/workflows/deploy.yml) が担当しており、この CI とは独立している。
 
+## サプライチェーン攻撃への対策
+
+- **cooldown**: 新バージョンの公開から一定日数(npm: patch 7日 / minor 14日 / major 30日、Actions: 14日 / major 30日)経過するまで更新 PR を作らない。乗っ取られたパッケージの汚染バージョンは通常数日以内に検出・削除されるため、この待機期間が防波堤になる
+- **GitHub Actions の SHA 固定**: ワークフローで使うアクションはタグ(`@v7` など)ではなくコミット SHA で固定している。タグは後から悪意あるコミットに付け替えられる可能性があるため。バージョン更新は Dependabot が SHA ごと更新する
+- **セキュリティ更新は即時**: 既知の脆弱性(GitHub Security Advisory)に対する Dependabot の修正 PR は cooldown を待たずに作られる
+- ローカルでの `npm install` はこれらの保護の外なので、依存関係の更新は基本的に Dependabot の PR 経由で行う
+
 ## 無料プランの注意点
 
 - このリポジトリは**パブリック**のため、GitHub Actions は**無制限・無料**。分数の心配は不要

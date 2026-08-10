@@ -8,6 +8,12 @@ updates:
       time: "09:00"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 5
+    # サプライチェーン対策: 公開直後のバージョンを避け、一定日数経過後に更新する
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
+      semver-minor-days: 14
+      semver-patch-days: 7
     groups:
       minor-and-patch:
         applies-to: version-updates
@@ -22,3 +28,6 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Asia/Tokyo"
+    cooldown:
+      default-days: 14
+      semver-major-days: 30
