@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
-import { Profile } from '../types';
+import type React from 'react';
+import { useRef } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import type { Profile } from '../types';
 import { getPublicAssetPath } from '../utils/assets';
 import OptimizedImage from './OptimizedImage';
 
@@ -10,21 +11,24 @@ const profileData: Profile = {
   periods: [
     {
       period: '1989/01/13生まれ。',
-      description: ''
+      description: '',
     },
     {
       period: '2012〜2019',
-      description: '会社員、社内SEとして活動。競馬予想サイト開発・運用・保守。JQuery・PHP・PostgreSQLなど'
+      description:
+        '会社員、社内SEとして活動。競馬予想サイト開発・運用・保守。JQuery・PHP・PostgreSQLなど',
     },
     {
       period: '2019〜2022',
-      description: 'フリーランス、SESとして活動。銀行系アプリの開発・運用・保守。Angular・JAVA・MySQLなど'
+      description:
+        'フリーランス、SESとして活動。銀行系アプリの開発・運用・保守。Angular・JAVA・MySQLなど',
     },
     {
       period: '2022〜現在',
-      description: 'フリーランス、SESとして活動。転職サイトの開発・運用・保守。Angular・React・Kotlin・MySQLなど'
-    }
-  ]
+      description:
+        'フリーランス、SESとして活動。転職サイトの開発・運用・保守。Angular・React・Kotlin・MySQLなど',
+    },
+  ],
 };
 
 const About: React.FC = () => {
@@ -37,8 +41,8 @@ const About: React.FC = () => {
         <h2 className="title">ABOUT</h2>
         <div className={`profile ${isVisible ? 'animate-in' : ''}`}>
           <p className="profile-img">
-            <OptimizedImage 
-              src={profileData.image} 
+            <OptimizedImage
+              src={profileData.image}
               alt={profileData.name}
               width={150}
               height={150}
@@ -46,8 +50,8 @@ const About: React.FC = () => {
             />
           </p>
           <div className="profile-body">
-            {profileData.periods.map((period, index) => (
-              <p key={index}>
+            {profileData.periods.map((period) => (
+              <p key={period.period}>
                 {period.period && <strong>{period.period}</strong>}
                 {period.description && (
                   <>

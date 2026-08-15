@@ -4,10 +4,15 @@ import App from './App.tsx';
 import { ThemeProvider } from './context/ThemeContext';
 import './styles/index.scss';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error('#root が index.html に見つかりません');
+}
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <ThemeProvider>
       <App />
     </ThemeProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
