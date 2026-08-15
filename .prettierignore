@@ -1,0 +1,15 @@
+# Biome が担当する拡張子は Prettier の対象外にする。
+# 同じファイルを2つのフォーマッタが整形すると結果が競合するため、
+# biome.jsonc の includes と裏返しの関係を保つこと。
+*.js
+*.jsx
+*.ts
+*.tsx
+*.json
+*.jsonc
+*.css
+
+# ビルド成果物・依存
+dist/
+node_modules/
+local/

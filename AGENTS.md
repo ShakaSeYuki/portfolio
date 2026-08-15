@@ -4,6 +4,7 @@
 React + TypeScript + Vite を使用したモダンなフロントエンド開発環境で構築されています。
 
 ## 画面構成
+
 - **SKILL**: 使用可能な技術スタック（HTML5/CSS3, React, Angular, Java, AWS等）
 - **WORKS**: 個人開発プロジェクト（ポモドーロタイマー、クレメアメーカー等）
 - **ABOUT**: 経歴・プロフィール情報
@@ -12,10 +13,12 @@ React + TypeScript + Vite を使用したモダンなフロントエンド開発
 ## 開発環境とセットアップ
 
 ### 必要な環境
+
 - Node.js 18.0.0以上
 - npm または yarn
 
 ### セットアップ手順
+
 ```bash
 # 依存関係のインストール
 npm install
@@ -26,14 +29,16 @@ npm run dev
 # 本番ビルド
 npm run build
 
-# 型チェック 
+# 型チェック
 npm run type-check
 
-# コードリンティング
+# リント + フォーマット(JS/TS/JSON/CSS。Biome担当)
 npm run lint
+npm run lint:fix
 
-# コード整形
+# フォーマット(SCSS/Markdown/YAML/HTML。Prettier担当)
 npm run format
+npm run format:check
 
 # 依存関係更新確認
 npm outdated
@@ -85,35 +90,52 @@ portfolio/
 ├── package.json           # プロジェクト設定
 ├── tsconfig.json          # TypeScript設定
 ├── vite.config.ts         # Vite設定
-├── .eslintrc.json         # ESLint設定
-└── .prettierrc            # Prettier設定
+├── biome.jsonc            # Biome設定(lint + format)
+├── .prettierrc            # Prettier設定
+└── .prettierignore        # Biome担当分をPrettierから除外
 ```
 
 ## 重要なファイルとディレクトリ
 
 ### 核となるファイル
+
 - `src/App.tsx`: メインコンポーネント
 - `src/main.tsx`: React アプリケーションエントリーポイント
 - `vite.config.ts`: ビルド設定とプラグイン
 - `package.json`: 依存関係とスクリプト定義
 
 ### 設定ファイル
+
 - `tsconfig.json`: TypeScript コンパイラ設定
-- `.eslintrc.json`: コード品質チェック設定
-- `.prettierrc`: コードフォーマット設定
+- `biome.jsonc`: lint とフォーマットの設定（JS/TS/JSON/CSS）
+- `.prettierrc` / `.prettierignore`: Prettier の設定と担当範囲（SCSS/Markdown/YAML/HTML）
 
 ### スタイル関連
+
 - `src/styles/variables.scss`: 色・サイズ等の変数定義
 - `src/styles/themes.scss`: ダークモード対応
 - `src/styles/responsive.scss`: レスポンシブデザイン
 
 ### PWA関連
+
 - `manifest.json`: アプリマニフェスト
 - `sw.js`: Service Worker（オフライン対応）
+
+## リント・フォーマット
+
+**ESLint は 2026-08 に廃止し、Biome に置き換えた**。1,000行規模のリポジトリに対して ESLint 関連の依存が6パッケージあり、設定が本体より重かったため。
+
+- **担当分け**: JS/TS/JSON/CSS は Biome、SCSS/Markdown/YAML/HTML は Prettier。Biome がこれらの形式に未対応のため、Prettier を捨てきれていない
+- 同じファイルを2つのフォーマッタが触らないよう、`biome.jsonc` の `includes` と `.prettierignore` は裏返しの関係を保つこと
+- 書式は既存の `.prettierrc` に合わせ、シングルクォート・行幅100・スペース2
+- `a11y/useValidAnchor` は無効化している。ヘッダーの `<a href="#works">` はセクション内リンクで、button に変えるとURLフラグメントとJS無効時の遷移を失うため
+- `css/ress.css`（vendored な ress v3.0.1）と `public/` は対象外
+- 選定理由と他リポジトリとの方針の違いは `../dev-ideas/lint-format-guide.md` を参照
 
 ## コーディング規約
 
 ### TypeScript/React スタイルガイド
+
 - インデントは2スペース
 - セミコロンは必須
 - 変数名・関数名はcamelCase
@@ -123,12 +145,14 @@ portfolio/
 - propsには適切な型定義を付与
 
 ### SCSS スタイルガイド
+
 - 変数は `$kebab-case` 形式
 - ネスト階層は3レベルまで
 - ミックスインを積極活用
 - レスポンシブはmobile-first
 
 ### コメント規約
+
 - 複雑なロジックには日本語でコメントを記載
 - 関数の上部にJSDocスタイルのコメントを追加
 - コンポーネントの役割を明記
@@ -136,17 +160,20 @@ portfolio/
 ## よくあるタスク
 
 ### 新しいコンポーネントの追加
+
 1. `src/components/` に `.tsx` ファイルを作成
 2. 型定義を `src/types/index.ts` に追加
 3. 必要に応じてカスタムフックを作成
 4. スタイルは既存のSCSS変数を活用
 
 ### スタイル修正
+
 1. `src/styles/variables.scss` で変数確認
 2. 適切なSCSSファイルで修正
 3. レスポンシブ対応を忘れずに
 
 ### パフォーマンス改善
+
 1. `OptimizedImage` コンポーネントを活用
 2. `useIntersectionObserver` でアニメーション最適化
 3. 画像のWebP対応推奨
@@ -156,12 +183,15 @@ portfolio/
 **重要**: このプロジェクトでの作業時は、以下の指針に従ってください。
 
 ### 言語設定
+
 - **すべての回答とコメントは日本語で記述してください**
 - コード内のコメントも日本語で記載
 - 変数名は英語でも構いませんが、説明は日本語で
 
 ### コードレビューの観点
+
 以下の点を重視してレビューしてください：
+
 1. **可読性**: コードが理解しやすいか
 2. **保守性**: 将来の変更に対応しやすいか
 3. **パフォーマンス**: 効率的な実装になっているか
@@ -169,6 +199,7 @@ portfolio/
 5. **テスト**: 適切なテストが書かれているか
 
 ### 提案形式
+
 コードの改善提案をする際は、以下の形式を使用してください：
 
 ```markdown
@@ -179,13 +210,16 @@ portfolio/
 **理由**: [なぜその解決策が良いのか]
 
 ### 修正前
+
 [既存のコード]
 
 ### 修正後
+
 [改善されたコード]
 ```
 
 ### 質問への回答スタイル
+
 - 簡潔で分かりやすい日本語で回答
 - 必要に応じて具体例を提示
 - 複数の選択肢がある場合は、それぞれのメリット・デメリットを説明
@@ -193,27 +227,29 @@ portfolio/
 ## 実装済み機能
 
 ### ✅ 完了した改善項目
+
 1. **モダンなJavaScript**: jQuery → Vanilla JavaScript/TypeScript
 2. **React化**: コンポーネントベース設計、型安全性
 3. **SCSS導入**: 変数管理、ミックスイン活用
-4. **パフォーマンス最適化**: 
+4. **パフォーマンス最適化**:
    - WebP対応画像コンポーネント
    - IntersectionObserver活用
    - Core Web Vitals向上
-5. **SEO強化**: 
+5. **SEO強化**:
    - 構造化データ（JSON-LD）
    - OGPメタタグ最適化
    - プリロード・プリフェッチ
-6. **PWA対応**: 
+6. **PWA対応**:
    - Service Worker
    - アプリマニフェスト
    - オフライン機能
-7. **ダークモード**: 
+7. **ダークモード**:
    - システム設定連動
    - 3テーマ対応（Light/Dark/System）
    - スムーズな切り替えアニメーション
 
 ### 🎯 今後の改善候補
+
 - 多言語対応（日本語・英語）
 - GitHub API連携（最新リポジトリ表示）
 - アクセシビリティ強化
@@ -223,17 +259,20 @@ portfolio/
 ## 技術スタック
 
 ### フロントエンド
+
 - **React 18**: UIライブラリ
 - **TypeScript 5**: 型安全性
 - **Vite 5**: 高速ビルドツール
 - **SCSS**: CSS プリプロセッサ
 
 ### 開発ツール
-- **ESLint**: コード品質
-- **Prettier**: コード整形
+
+- **Biome**: lint + フォーマット（JS/TS/JSON/CSS）
+- **Prettier**: フォーマット（SCSS/Markdown/YAML/HTML。Biome が未対応のため残している）
 - **Terser**: JavaScript最適化
 
 ### パフォーマンス
+
 - **WebP画像**: 次世代フォーマット対応
 - **Intersection Observer**: 効率的なアニメーション
 - **Service Worker**: キャッシュ戦略
@@ -241,9 +280,11 @@ portfolio/
 ## 特記事項
 
 ### バージョン構成
+
 - **React版のみ**: `index.html`（旧jQuery版は2026-07に削除済み）
 
 ### 開発方針
+
 - 既存機能の互換性維持
 - 段階的なモダン化アプローチ
 - パフォーマンスファースト
@@ -251,16 +292,18 @@ portfolio/
 ## 参考リンク
 
 ### 技術ドキュメント
+
 - [React公式ドキュメント](https://react.dev/)
 - [TypeScript公式ドキュメント](https://www.typescriptlang.org/)
 - [Vite公式ドキュメント](https://vitejs.dev/)
 - [SCSS公式ドキュメント](https://sass-lang.com/)
 
 ### パフォーマンス
+
 - [Core Web Vitals](https://web.dev/vitals/)
 - [PWA チェックリスト](https://web.dev/pwa-checklist/)
 
 ---
 
-**Codex利用時の注意事項**: 
+**Codex利用時の注意事項**:
 このプロジェクトに関するすべての質問や作業において、日本語での丁寧な回答をお願いします。技術的な説明も可能な限り分かりやすい日本語で表現してください。

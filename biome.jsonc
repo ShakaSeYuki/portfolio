@@ -1,0 +1,62 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  // Biome は .scss / .md / .yml / .html を扱えないため、それらは Prettier に
+  // 残している。ここで対象を明示し、.prettierignore と裏返しの関係にする
+  // ことで、同じファイルが2つのフォーマッタに触られないようにする。
+  // public/ は静的アセット、css/ress.css は vendored な ress v3.0.1(MIT)。
+  // どちらも自分で書くコードではないため対象外にする。
+  "files": {
+    "includes": ["**", "!package-lock.json", "!public", "!css/ress.css"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      "correctness": {
+        // eslint-plugin-react-hooks の rules-of-hooks / exhaustive-deps 相当
+        "useHookAtTopLevel": "error",
+        "useExhaustiveDependencies": "warn"
+      },
+      "a11y": {
+        // ヘッダーの `<a href="#works" onClick={...}>` はセクション内リンクで、
+        // onClick はスムーススクロールの上乗せに過ぎない。button に変えると
+        // URLフラグメント・リンクのコピー・JS無効時の遷移をすべて失うため、
+        // アンカーのままが正しい。
+        "useValidAnchor": "off"
+      },
+      "style": {
+        // eslint-plugin-react-refresh の only-export-components 相当
+        "useComponentExportOnlyModules": {
+          "level": "warn",
+          "options": { "allowConstantExport": true }
+        }
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      // 既存の .prettierrc に合わせる(singleQuote / trailingComma: es5)
+      "quoteStyle": "single",
+      "trailingCommas": "es5"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}
