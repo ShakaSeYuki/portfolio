@@ -1,6 +1,6 @@
+import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   base: '/portfolio/',
@@ -15,13 +15,13 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
-      }
-    }
+        drop_debugger: true,
+      },
+    },
   },
   server: {
     port: 3000,
-    open: true
+    open: true,
   },
   resolve: {
     alias: {
@@ -31,11 +31,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "@/styles/variables.scss" as *;\n'
-      }
-    }
+        additionalData: '@use "@/styles/variables.scss" as *;\n',
+      },
+    },
   },
   define: {
-    __PWA_VERSION__: JSON.stringify(process.env.npm_package_version || '1.0.0')
-  }
+    __PWA_VERSION__: JSON.stringify(process.env.npm_package_version || '1.0.0'),
+  },
 });

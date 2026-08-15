@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import type React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface OptimizedImageProps {
   src: string;
@@ -15,7 +16,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   className,
   width,
   height,
-  priority = false
+  priority = false,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);

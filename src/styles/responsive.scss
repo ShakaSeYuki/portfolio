@@ -1,4 +1,4 @@
-@use "@/styles/variables.scss" as *;
+@use '@/styles/variables.scss' as *;
 
 // Mobile-first responsive design utilities
 
@@ -43,7 +43,7 @@
 
   &.grid-2 {
     grid-template-columns: repeat(2, 1fr);
-    
+
     @include mobile {
       grid-template-columns: 1fr;
     }
@@ -51,11 +51,11 @@
 
   &.grid-3 {
     grid-template-columns: repeat(3, 1fr);
-    
+
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
     }
-    
+
     @include mobile {
       grid-template-columns: 1fr;
     }

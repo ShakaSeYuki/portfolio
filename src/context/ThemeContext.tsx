@@ -1,5 +1,6 @@
-import React, { createContext, useContext, ReactNode } from 'react';
-import { useTheme, Theme } from '../hooks/useTheme';
+import type React from 'react';
+import { createContext, type ReactNode, useContext } from 'react';
+import { type Theme, useTheme } from '../hooks/useTheme';
 
 interface ThemeContextType {
   theme: Theme;
@@ -17,11 +18,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const themeState = useTheme();
 
-  return (
-    <ThemeContext.Provider value={themeState}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={themeState}>{children}</ThemeContext.Provider>;
 };
 
 export const useThemeContext = (): ThemeContextType => {

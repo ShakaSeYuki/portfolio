@@ -13,11 +13,12 @@ export const usePWA = () => {
   useEffect(() => {
     // Service Workerを登録する
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register(getPublicAssetPath('sw.js'))
-        .then(registration => {
+      navigator.serviceWorker
+        .register(getPublicAssetPath('sw.js'))
+        .then((registration) => {
           console.log('SW registered: ', registration);
         })
-        .catch(registrationError => {
+        .catch((registrationError) => {
           console.log('SW registration failed: ', registrationError);
         });
     }
@@ -41,19 +42,19 @@ export const usePWA = () => {
 
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    
+
     if (outcome === 'accepted') {
       console.log('User accepted the install prompt');
     } else {
       console.log('User dismissed the install prompt');
     }
-    
+
     setDeferredPrompt(null);
     setIsInstallable(false);
   };
 
   return {
     isInstallable,
-    installPWA
+    installPWA,
   };
 };

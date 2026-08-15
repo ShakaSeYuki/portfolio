@@ -7,10 +7,10 @@ export const usePerformanceOptimization = () => {
     const preloadCriticalImages = () => {
       const criticalImages = [
         getPublicAssetPath('img/profile.png'),
-        getPublicAssetPath('img/favicon.png')
+        getPublicAssetPath('img/favicon.png'),
       ];
 
-      criticalImages.forEach(src => {
+      criticalImages.forEach((src) => {
         const link = document.createElement('link');
         link.rel = 'preload';
         link.as = 'image';
@@ -24,7 +24,7 @@ export const usePerformanceOptimization = () => {
       if ('fonts' in document) {
         Promise.all([
           document.fonts.load('400 16px Montserrat'),
-          document.fonts.load('700 16px Montserrat')
+          document.fonts.load('700 16px Montserrat'),
         ]).then(() => {
           document.body.classList.add('fonts-loaded');
         });
@@ -34,7 +34,7 @@ export const usePerformanceOptimization = () => {
     // スクロール時のレイアウト再計算を抑える
     const optimizeScrollPerformance = () => {
       let ticking = false;
-      
+
       const updateScrollPosition = () => {
         // DOMの読み書きをまとめて実行する
         requestAnimationFrame(() => {
@@ -50,7 +50,7 @@ export const usePerformanceOptimization = () => {
       };
 
       window.addEventListener('scroll', onScroll, { passive: true });
-      
+
       return () => {
         window.removeEventListener('scroll', onScroll);
       };

@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
-import { Work } from '../types';
+import type React from 'react';
+import { useRef } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import type { Work } from '../types';
 import { getBasePath, getPublicAssetPath } from '../utils/assets';
 import OptimizedImage from './OptimizedImage';
 
@@ -11,7 +12,7 @@ const worksData: Work[] = [
     image: getPublicAssetPath('img/favicon.png'),
     alt: 'Portfolio',
     url: getBasePath(),
-    isExternal: false
+    isExternal: false,
   },
   {
     id: 'kaimono-mask',
@@ -19,7 +20,7 @@ const worksData: Work[] = [
     image: getPublicAssetPath('img/kaimono-mask.jpg'),
     alt: 'Amazonの個人情報を撮影前に隠すChrome拡張機能「Kaimono Mask」',
     url: 'https://chromewebstore.google.com/detail/kaimono-mask/aodhmfieogfcpfhgoldnenmchcmlpohj',
-    isExternal: true
+    isExternal: true,
   },
   {
     id: 'pomodoro',
@@ -27,7 +28,7 @@ const worksData: Work[] = [
     image: getPublicAssetPath('img/pomodoro-timer.png'),
     alt: 'ポモドーロタイマー',
     url: 'https://chromewebstore.google.com/detail/%E3%83%9D%E3%83%A2%E3%83%89%E3%83%BC%E3%83%AD%E3%82%BF%E3%82%A4%E3%83%9E%E3%83%BCpomodoro-timer/lpfaeeoapaaljlcgaifnahimgbocleeb?hl=ja',
-    isExternal: true
+    isExternal: true,
   },
   {
     id: 'cremea',
@@ -35,7 +36,7 @@ const worksData: Work[] = [
     image: getPublicAssetPath('img/cremea.png'),
     alt: 'クレメアメーカー',
     url: 'https://shakaseyuki.github.io/cremea-maker/',
-    isExternal: true
+    isExternal: true,
   },
   {
     id: 'bucket-list-100',
@@ -43,8 +44,8 @@ const worksData: Work[] = [
     image: getPublicAssetPath('img/bucket-list-100.svg'),
     alt: 'Bucket List 100',
     url: 'https://bucket-list-100.pages.dev/',
-    isExternal: true
-  }
+    isExternal: true,
+  },
 ];
 
 const Works: React.FC = () => {
@@ -69,12 +70,7 @@ const Works: React.FC = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="works-img">
-                <OptimizedImage 
-                  src={work.image} 
-                  alt={work.alt}
-                  width={300}
-                  height={200}
-                />
+                <OptimizedImage src={work.image} alt={work.alt} width={300} height={200} />
               </div>
               <p className="works-name">{work.name}</p>
             </a>

@@ -8,8 +8,8 @@ https://shakaseyuki.github.io/portfolio/
 
 # Author
 
-* 作成者:西野友貴
-* twitter：[ShakaSeYuki](https://x.com/ShakaSeYuki)
+- 作成者:西野友貴
+- twitter：[ShakaSeYuki](https://x.com/ShakaSeYuki)
 
 # License
 

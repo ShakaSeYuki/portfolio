@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
-import { Skill } from '../types';
+import type React from 'react';
+import { useRef } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import type { Skill } from '../types';
 import { getPublicAssetPath } from '../utils/assets';
 import OptimizedImage from './OptimizedImage';
 
@@ -10,64 +11,64 @@ const skillsData: Skill[] = [
     name: 'HTML5/CSS3',
     rating: 4,
     image: getPublicAssetPath('img/html-5.svg'),
-    alt: 'html5'
+    alt: 'html5',
   },
   {
     id: 'wordpress',
     name: 'WordPress',
     rating: 3,
     image: getPublicAssetPath('img/wordpress-icon.svg'),
-    alt: 'wordpress'
+    alt: 'wordpress',
   },
   {
     id: 'javascript',
     name: 'JavaScript/TypeScript',
     rating: 4,
     image: getPublicAssetPath('img/typescript.png'),
-    alt: 'typescript'
+    alt: 'typescript',
   },
   {
     id: 'react',
     name: 'React',
     rating: 4,
     image: getPublicAssetPath('img/react.png'),
-    alt: 'react'
+    alt: 'react',
   },
   {
     id: 'angular',
     name: 'Angular/AngularJS',
     rating: 4,
     image: getPublicAssetPath('img/angular.png'),
-    alt: 'angular'
+    alt: 'angular',
   },
   {
     id: 'backend',
     name: 'JAVA/Kotlin/PHP',
     rating: 3,
     image: getPublicAssetPath('img/java.png'),
-    alt: 'java'
+    alt: 'java',
   },
   {
     id: 'cloud',
     name: 'AWS/GCP',
     rating: 3,
     image: getPublicAssetPath('img/aws.png'),
-    alt: 'aws'
+    alt: 'aws',
   },
   {
     id: 'database',
     name: 'MySQL/PostgreSQL',
     rating: 4,
     image: getPublicAssetPath('img/mysql.svg'),
-    alt: 'mysql'
+    alt: 'mysql',
   },
   {
     id: 'ai-tools',
     name: 'AI開発ツール（Claude Code / Codex）',
     rating: 4,
     image: getPublicAssetPath('img/ai-tools.svg'),
-    alt: 'AI開発ツール'
-  }
+    alt: 'AI開発ツール',
+  },
 ];
 
 const Skills: React.FC = () => {
@@ -80,18 +81,13 @@ const Skills: React.FC = () => {
         <h2 className="title">SKILL</h2>
         <div className="skill-list">
           {skillsData.map((skill, index) => (
-            <div 
-              key={skill.id} 
+            <div
+              key={skill.id}
               className={`skill-item ${isVisible ? 'animate-in' : ''}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <p className="skill-img">
-                <OptimizedImage 
-                  src={skill.image} 
-                  alt={skill.alt}
-                  width={60}
-                  height={60}
-                />
+                <OptimizedImage src={skill.image} alt={skill.alt} width={60} height={60} />
               </p>
               <div className="skill-body">
                 <h3 className="skill-name">{skill.name}</h3>

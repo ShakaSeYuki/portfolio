@@ -7,7 +7,7 @@
 body {
   font-family: $font-family;
   font-size: $font-size-base;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   color: $text-color;
 }
 
@@ -23,8 +23,6 @@ img {
   vertical-align: bottom;
   border-style: none;
 }
-
-
 
 .pc-only {
   display: block;
@@ -64,7 +62,7 @@ img {
   line-height: 1;
   margin-bottom: 40px;
   text-align: center;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   color: #333;
 }
 
@@ -83,7 +81,7 @@ img {
   z-index: 1;
   width: 100%;
   background-color: #fff;
-  box-shadow: 0 5px 10px -6px rgba(0,0,0,.1);
+  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 .header .container {
@@ -98,7 +96,7 @@ img {
   font-weight: bold;
   line-height: 1.2;
   margin-right: 20px;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 }
 
 .header-logo a {
@@ -121,8 +119,8 @@ img {
   font-weight: bold;
   display: inline-block;
   padding: 5px 0;
-  transition: .3s;
-  letter-spacing: .05em;
+  transition: 0.3s;
+  letter-spacing: 0.05em;
   color: #333;
 }
 .gnav-item a:after {
@@ -131,8 +129,8 @@ img {
   left: 50%;
   width: 0;
   height: 3px;
-  content: "";
-  transition: .3s;
+  content: '';
+  transition: 0.3s;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   background-color: #333;
@@ -162,14 +160,14 @@ img {
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 5px;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
 }
 .mv-subtitle {
   font-size: 20px;
   font-weight: bold;
   line-height: 1;
   margin-bottom: 40px;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
 }
 
 .mv-text {
@@ -188,13 +186,13 @@ img {
 
 .works-item {
   width: 31.74603%;
-  margin-right: 1.58730%;
+  margin-right: 1.5873%;
   margin-bottom: 40px;
   color: #333;
 }
 
 .works-item:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .works-item:nth-of-type(3n) {
@@ -266,20 +264,21 @@ img {
   line-height: 1.8;
 }
 
-.skill-rating{
+.skill-rating {
   position: relative;
   z-index: 0;
   display: inline-block;
   white-space: nowrap;
-  color: #CCCCCC; /* グレーカラー 自由に設定化 */
+  color: #cccccc; /* グレーカラー 自由に設定化 */
   font-size: 30px;
 }
 
-.skill-rating:before, .skill-rating:after{
+.skill-rating:before,
+.skill-rating:after {
   content: '★★★★★';
 }
 
-.skill-rating:after{
+.skill-rating:after {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -289,17 +288,39 @@ img {
   color: #ffcf32; /* イエローカラー 自由に設定化 */
 }
 
-.skill-rating[data-rate="5"]:after{ width: 100%; } /* 星5 */
-.skill-rating[data-rate="4.5"]:after{ width: 90%; } /* 星4.5 */
-.skill-rating[data-rate="4"]:after{ width: 80%; } /* 星4 */
-.skill-rating[data-rate="3.5"]:after{ width: 70%; } /* 星3.5 */
-.skill-rating[data-rate="3"]:after{ width: 60%; } /* 星3 */
-.skill-rating[data-rate="2.5"]:after{ width: 50%; } /* 星2.5 */
-.skill-rating[data-rate="2"]:after{ width: 40%; } /* 星2 */
-.skill-rating[data-rate="1.5"]:after{ width: 30%; } /* 星1.5 */
-.skill-rating[data-rate="1"]:after{ width: 20%; } /* 星1 */
-.skill-rating[data-rate="0.5"]:after{ width: 10%; } /* 星0.5 */
-.skill-rating[data-rate="0"]:after{ width: 0%; } /* 星0 */
+.skill-rating[data-rate='5']:after {
+  width: 100%;
+} /* 星5 */
+.skill-rating[data-rate='4.5']:after {
+  width: 90%;
+} /* 星4.5 */
+.skill-rating[data-rate='4']:after {
+  width: 80%;
+} /* 星4 */
+.skill-rating[data-rate='3.5']:after {
+  width: 70%;
+} /* 星3.5 */
+.skill-rating[data-rate='3']:after {
+  width: 60%;
+} /* 星3 */
+.skill-rating[data-rate='2.5']:after {
+  width: 50%;
+} /* 星2.5 */
+.skill-rating[data-rate='2']:after {
+  width: 40%;
+} /* 星2 */
+.skill-rating[data-rate='1.5']:after {
+  width: 30%;
+} /* 星1.5 */
+.skill-rating[data-rate='1']:after {
+  width: 20%;
+} /* 星1 */
+.skill-rating[data-rate='0.5']:after {
+  width: 10%;
+} /* 星0.5 */
+.skill-rating[data-rate='0']:after {
+  width: 0%;
+} /* 星0 */
 
 /*--------------------------------
  About
@@ -349,6 +370,11 @@ img {
  ページトップ
 ---------------------------------*/
 .page-top {
+  // div から button に変更したため、ボタンの既定スタイルを打ち消して
+  // 従来の全幅バーの見た目を維持する
+  width: 100%;
+  border: 0;
+  font: inherit;
   font-weight: bold;
   padding: 10px;
   cursor: pointer;
@@ -416,7 +442,7 @@ img {
   left: 0;
   width: 4px;
   height: 100%;
-  content: "";
+  content: '';
   border-radius: 3px;
   background-color: #333;
 }
@@ -589,7 +615,7 @@ img {
 
   .article-body h3 {
     font-size: 16px;
-    padding-left: .8em;
+    padding-left: 0.8em;
   }
 
   .article-body h3:not(:first-child) {

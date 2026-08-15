@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { getBasePath } from '../utils/assets';
 import ThemeToggle from './ThemeToggle';
 
@@ -9,11 +9,12 @@ const Header: React.FC = () => {
       const target = document.querySelector(href) as HTMLElement;
       if (target) {
         const headerHeight = 73;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        
+        const targetPosition =
+          target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
         window.scrollTo({
           top: targetPosition,
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     }
@@ -28,16 +29,24 @@ const Header: React.FC = () => {
         <nav className="gnav">
           <ul className="gnav-list">
             <li className="gnav-item">
-              <a href="#works" onClick={(e) => handleNavClick(e, '#works')}>WORKS</a>
+              <a href="#works" onClick={(e) => handleNavClick(e, '#works')}>
+                WORKS
+              </a>
             </li>
             <li className="gnav-item">
-              <a href="#skill" onClick={(e) => handleNavClick(e, '#skill')}>SKILL</a>
+              <a href="#skill" onClick={(e) => handleNavClick(e, '#skill')}>
+                SKILL
+              </a>
             </li>
             <li className="gnav-item">
-              <a href="#about" onClick={(e) => handleNavClick(e, '#about')}>ABOUT</a>
+              <a href="#about" onClick={(e) => handleNavClick(e, '#about')}>
+                ABOUT
+              </a>
             </li>
             <li className="gnav-item">
-              <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>CONTACT</a>
+              <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>
+                CONTACT
+              </a>
             </li>
           </ul>
         </nav>
