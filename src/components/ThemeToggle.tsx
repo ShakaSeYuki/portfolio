@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { useThemeContext } from '../context/ThemeContext';
 
 const ThemeToggle: React.FC = () => {
@@ -31,6 +31,7 @@ const ThemeToggle: React.FC = () => {
   return (
     <div className="theme-toggle">
       <button
+        type="button"
         className="theme-toggle-btn"
         onClick={toggleTheme}
         aria-label={getNextThemeLabel()}
@@ -38,9 +39,10 @@ const ThemeToggle: React.FC = () => {
       >
         <span className="theme-icon">{getThemeIcon()}</span>
       </button>
-      
+
       <div className="theme-selector">
         <button
+          type="button"
           className={`theme-option ${theme === 'light' ? 'active' : ''}`}
           onClick={() => setTheme('light')}
           aria-label="ライトモード"
@@ -48,6 +50,7 @@ const ThemeToggle: React.FC = () => {
           ☀️
         </button>
         <button
+          type="button"
           className={`theme-option ${theme === 'dark' ? 'active' : ''}`}
           onClick={() => setTheme('dark')}
           aria-label="ダークモード"
@@ -55,6 +58,7 @@ const ThemeToggle: React.FC = () => {
           🌙
         </button>
         <button
+          type="button"
           className={`theme-option ${theme === 'system' ? 'active' : ''}`}
           onClick={() => setTheme('system')}
           aria-label="システム設定に従う"
