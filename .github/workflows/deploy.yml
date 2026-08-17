@@ -23,7 +23,7 @@ jobs:
 
       # npm install を Takumi Guard(悪意あるパッケージをブロックするレジストリプロキシ)経由にする
       - name: Setup Takumi Guard
-        uses: flatt-security/setup-takumi-guard-npm@9a5d797c2085b6326d3a2985c08e3a114b9b88c1 # v1.1.1
+        uses: flatt-security/setup-takumi-guard-npm@6d4182745c1e474c35a023573c2612c085be45a4 # v1.2.0
 
       - name: Setup Node
         uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
