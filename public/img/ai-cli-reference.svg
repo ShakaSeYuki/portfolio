@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>AI CLI Reference</title>
+  <style>
+    .background { fill: #16181d; }
+    .cursor { fill: #e6e8ec; }
+    @media (prefers-color-scheme: dark) {
+      .background { fill: #e6e8ec; }
+      .cursor { fill: #16181d; }
+    }
+  </style>
+  <rect width="64" height="64" rx="15" class="background" />
+  <path
+    d="m15 21 12 11-12 11"
+    fill="none"
+    stroke="#2f5fd0"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="7"
+  />
+  <rect x="31" y="39" width="18" height="7" rx="3.5" class="cursor" />
+</svg>
