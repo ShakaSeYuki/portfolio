@@ -46,6 +46,14 @@ const worksData: Work[] = [
     url: 'https://bucket-list-100.pages.dev/',
     isExternal: true,
   },
+  {
+    id: 'ai-cli-reference',
+    name: 'AI CLI Reference',
+    image: getPublicAssetPath('img/ai-cli-reference.svg'),
+    alt: 'Claude Code / Codex CLI / Gemini CLI のコマンド対応表「AI CLI Reference」',
+    url: 'https://ai-cli-reference.pages.dev/',
+    isExternal: true,
+  },
 ];
 
 const Works: React.FC = () => {
