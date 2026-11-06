@@ -125,7 +125,7 @@ portfolio/
 
 **ESLint は 2026-08 に廃止し、Biome に置き換えた**。1,000行規模のリポジトリに対して ESLint 関連の依存が6パッケージあり、設定が本体より重かったため。
 
-- **担当分け**: JS/TS/JSON/CSS は Biome、SCSS/Markdown/YAML/HTML は Prettier。Biome がこれらの形式に未対応のため、Prettier を捨てきれていない
+- **担当分け**: JS/TS/JSON/CSS は Biome、SCSS/Markdown/YAML/HTML は Prettier。Biome 2.6 で SCSS/YAML も処理できるようになったが、SCSS の色コードを誤検知するなど移行できる状態ではないため、`biome.jsonc` で明示的に除外している
 - 同じファイルを2つのフォーマッタが触らないよう、`biome.jsonc` の `includes` と `.prettierignore` は裏返しの関係を保つこと
 - 書式は既存の `.prettierrc` に合わせ、シングルクォート・行幅100・スペース2
 - `a11y/useValidAnchor` は無効化している。ヘッダーの `<a href="#works">` はセクション内リンクで、button に変えるとURLフラグメントとJS無効時の遷移を失うため
@@ -268,7 +268,7 @@ portfolio/
 ### 開発ツール
 
 - **Biome**: lint + フォーマット（JS/TS/JSON/CSS）
-- **Prettier**: フォーマット（SCSS/Markdown/YAML/HTML。Biome が未対応のため残している）
+- **Prettier**: フォーマット（SCSS/Markdown/YAML/HTML。Biome の対応が不十分なため残している）
 - **Terser**: JavaScript最適化
 
 ### パフォーマンス
